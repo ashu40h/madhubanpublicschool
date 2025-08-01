@@ -1,0 +1,49 @@
+/* head.component.css */
+
+.header {
+    font-family: Arial, sans-serif;
+  }
+  
+  .top-bar {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(150deg, #0837c3, #879ece);
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    height: 80px;
+    margin-right: 20px;
+  }
+  
+  .school-info h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .school-info p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .nav-bar {
+    background: linear-gradient(150deg, #1faf6c, #809208); /* red */
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .nav-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-weight: 500;
+  }
+  
+  .nav-bar a:hover {
+    text-decoration: underline;
+  }
+  
