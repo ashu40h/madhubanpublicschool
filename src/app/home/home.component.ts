@@ -3,11 +3,12 @@ import { HeadComponent } from '../head/head.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; 
 import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeadComponent, NgFor, HttpClientModule], 
+  imports: [HeadComponent, NgFor, HttpClientModule, FooterComponent], 
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -33,6 +34,6 @@ export class HomeComponent {
     );
   }
   get newsDuration() {
-    return `${this.newsPosts.length * 4}s`; // auto sets scroll speed
+    return `${this.newsPosts.length * 4}s`;
   }
 }

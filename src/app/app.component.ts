@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeadComponent } from './head/head.component';
-import { HomeComponent } from './home/home.component';
-import { provideHttpClient } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeadComponent, HomeComponent],
+  imports: [RouterOutlet, HeadComponent, FooterComponent],
   styleUrls: ['./app.component.css'],
-  template: `<router-outlet></router-outlet>`,
+  template: `
+  <app-head></app-head>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>`,
 })
 export class AppComponent {
   title = 'SD360';
