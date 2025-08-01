@@ -1,0 +1,26 @@
+<app-head></app-head>
+
+<section class="carousel-container">
+  <div class="carousel">
+    <img src="assets/images/one.jpeg" alt=" 1">
+    <img src="assets/images/two.jpeg" alt=" 2">
+    <img src="assets/images/three.jpeg" alt=" 3">
+    <img src="assets/images/one1.jpeg" alt=" 4">
+    <img src="assets/images/two1.jpeg" alt=" 5">
+    <img src="assets/images/three1.jpeg" alt=" 6">
+  </div>
+</section>
+
+<section class="news-section">
+    <h2 class="news-heading">News Room</h2>
+    <div class="news-ticker">
+      <div class="news-items" [style.animationDuration]="newsDuration">
+        <div *ngFor="let post of newsPosts" class="news-item">
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.content }}</p>
+          <small>{{ post.date }}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  
