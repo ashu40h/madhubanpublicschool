@@ -11,4 +11,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class HeadComponent {
 
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+
+  }
 }

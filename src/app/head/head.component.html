@@ -9,14 +9,21 @@
       </div>
     </div>
   
+  
+
     <nav class="nav-bar">
-      <a href="#">Online Admission Enquiry</a>
-      <a href="#">Online Registration Form</a>
-      <a href="#">School Rules & Policy</a>
-      <a href="#">Login</a>
-      <a href="#">Terms and Conditions</a>
-      <a href="#">Contact Us</a>
-      <a href="#">About School</a>
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+    
+      <div class="nav-links" [class.open]="menuOpen">
+        <a href="#">Online Admission Enquiry</a>
+        <a href="#">Online Registration Form</a>
+        <a href="#">School Rules & Policy</a>
+        <a href="#">Login</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Contact Us</a>
+        <a href="#">About School</a>
+      </div>
     </nav>
+    
   </header>
   
