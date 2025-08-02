@@ -1,0 +1,27 @@
+<!-- head.component.html -->
+<header class="header">
+    <div class="top-bar">
+      <img src="assets/logo/img.avif" alt="School Logo" class="logo" />
+      <div class="school-info">
+        <h1>G N A DEVINE PUBLIC SCHOOL</h1>
+
+        <p>Vijay Sweets wali gali, 107D, Nissing, Haryana 132024</p>
+      </div>
+    </div>
+  
+    
+    <nav class="nav-bar">
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+      <div class ="nav-links" [class.open]="isMenuOpen">
+      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">Online Admission Enquiry</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">Online Registration Form</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">School Rules & Policy</a>
+      <a routerLink="#" fragment="last-section" routerLinkActive="active" (click)="closeMenu()">Login</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">Terms and Conditions</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">Contact Us</a>
+      <a routerLink="#" routerLinkActive="active" (click)="closeMenu()">About School</a>
+    </div>
+    </nav>
+  </header>
+  

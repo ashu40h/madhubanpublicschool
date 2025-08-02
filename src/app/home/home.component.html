@@ -1,0 +1,37 @@
+<section class="carousel-container">
+  <div #carousel class="carousel">
+    <img src="assets/images/one.jpeg" alt="one" />
+    <img src="assets/images/two.jpeg" alt="two" />
+    <img src="assets/images/three.jpeg" alt="three" />
+    <img src="assets/images/one1.jpeg" alt="one1" />
+    <img src="assets/images/two1.jpeg" alt="two1" />
+    <img src="assets/images/three1.jpeg" alt="three1" />
+  </div>
+</section>
+
+
+<section class="news-section">
+    <h2 class="news-heading">News Room</h2>
+    <div class="news-ticker">
+      <div class="news-items" [style.animationDuration]="newsDuration">
+        <div *ngFor="let post of newsPosts" class="news-item">
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.content }}</p>
+          <small>{{ post.date }}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.890641209314!2d76.7560228!3d29.69395009999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e13fcc91edaa3%3A0xde11d483c1d0e30a!2sG%20N%20A%20Devine%20public%20school!5e0!3m2!1sen!2sin!4v1754066314329!5m2!1sen!2sin"
+      width="100%"
+      height="350"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  
+  
