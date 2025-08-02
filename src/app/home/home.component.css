@@ -139,27 +139,41 @@ Carousel
     .carousel-container {
       width: 100%;
       height: auto;
+      overflow: hidden;
     }
   
     .carousel {
       display: flex;
       flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;  
-      -webkit-overflow-scrolling: touch;
-      animation:none;
       width: auto;
-    }
+      animation: auto-scroll 30s linear infinite;
+    }  
   
     .carousel img {
       flex: 0 0 auto;
       width: 90vw;
       height: auto;
       object-fit: cover;
-      scroll-snap-align: center;
       margin-right: 10px;
     }
-    
+  
+
+    .carousel:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes auto-scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* This value moves the carousel to the left. */
+        /* It MUST be adjusted based on your number of images. */
+        /* This example is for 6 images: 6 * (90vw + 10px) = 540vw + 60px */
+        transform: translateX(calc(-540vw - 60px));
+      }
+    }
+  
     .news-section {
       padding: 15px 10px;
       margin-top: 0;
