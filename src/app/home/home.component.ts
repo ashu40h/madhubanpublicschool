@@ -36,4 +36,14 @@ export class HomeComponent {
   get newsDuration() {
     return `${this.newsPosts.length * 4}s`;
   }
+
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

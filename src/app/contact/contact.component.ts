@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -24,12 +25,4 @@ export class ContactComponent {
   console.log('Button clicked!',this.contactForm.value);  // Basic test to check if it's working
 }
 
-//   onSubmit() {
-//     if (this.contactForm.valid) {
-//       console.log('Form Data:', this.contactForm.value);
-//       // You can send the form data to a backend here
-//     }
-
-    
-// }
 }

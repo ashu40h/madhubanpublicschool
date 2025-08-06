@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-head',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule,  RouterLink],
   templateUrl: './head.component.html',
   styleUrl: './head.component.css'
 })
