@@ -1,0 +1,39 @@
+ 
+<div class="registration-container">
+  <h2>Student Registration</h2>
+  <form  class="form-container">
+
+    <!-- Student Information -->
+    <h3>Student Information</h3>
+    <input type="text" placeholder="Full Name (First, Middle, Last)" formControlName="studentName" />
+    <input type="date" placeholder="Date of Birth" formControlName="dob" />
+    <select formControlName="gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" placeholder="Grade Applying For" formControlName="grade" />
+    <input type="text" placeholder="Previous School Attended" formControlName="previousSchool" />
+    <input type="text" placeholder="Student ID (if re-enrolling)" formControlName="studentId" />
+
+    <!-- Parent/Guardian Information -->
+    <h3>👨‍👩‍👧 Parent/Guardian Information</h3>
+    <input type="text" placeholder="Parent/Guardian Full Name(s)" formControlName="parentName" />
+    <input type="text" placeholder="Relationship to Student" formControlName="relationship" />
+    <input type="text" placeholder="Occupation & Employer (optional)" formControlName="occupation" />
+    <input type="text" placeholder="Address" formControlName="parentAddress" />
+    <input type="text" placeholder="Phone Number(s)" formControlName="parentPhone" />
+    <input type="email" placeholder="Email Address" formControlName="parentEmail" />
+
+    <!-- Home Address -->
+    <h3>🏠 Home Address</h3>
+    <input type="text" placeholder="Street Address" formControlName="street" />
+    <input type="text" placeholder="City" formControlName="city" />
+    <input type="text" placeholder="State/Province" formControlName="state" />
+    <input type="text" placeholder="Zip/Postal Code" formControlName="zip" />
+    <input type="text" placeholder="Country" formControlName="country" />
+
+     <button type="button" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

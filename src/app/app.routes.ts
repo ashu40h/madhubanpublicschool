@@ -5,4 +5,5 @@ export const routes: Routes = [
     {path: 'head', loadComponent: () => import('./head/head.component').then(m => m.HeadComponent)},
     {path: 'footer', loadComponent: () => import('./footer/footer.component').then(m => m.FooterComponent)},
     {path: 'contact', loadComponent: () => import('./contact/contact.component').then(m => m.ContactComponent)},
+      {path: 'registration', loadComponent: () => import('./registration/registration.component').then(m => m.RegistrationComponent)},
 ];
