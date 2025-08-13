@@ -1,7 +1,8 @@
  
+ <div class="card-header">
 <div class="registration-container">
   <h2>Student Registration</h2>
-  <form  class="form-container">
+ <form [formGroup]="registrationForm" class="form-container">
 
     <!-- Student Information -->
     <h3>Student Information</h3>
@@ -36,4 +37,5 @@
 
      <button type="button" (click)="onSubmit()">Submit</button>
   </form>
+</div>
 </div>

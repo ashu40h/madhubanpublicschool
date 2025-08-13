@@ -152,4 +152,41 @@ button {
 button:disabled {
   background-color: #e2e1e1;
 }
+.registration-container {
+  max-width: 500px; /* Control card width */
+  margin: auto;
+  padding: 20px;
+  background: #f4f4f9;
+  border-radius: 8px;
+}
+
+.form-container h3 {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+  width: 100%;            /* ✅ Same size for all fields */
+  box-sizing: border-box; /* ✅ Padding doesn't affect width */
+  padding: 10px;
+  margin: 6px 0;          /* ✅ Equal gap between fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-container button {
+  background-color: #4cafef;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #3790d8;
+}
+
 

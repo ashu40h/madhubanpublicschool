@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports:  [],
+  imports:  [ReactiveFormsModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
+   
 
 
 
   contactForm:any|  FormGroup | undefined;
-  registrationForm: any;
+  registrationForm: FormGroup;
 
   
   constructor(private fb: FormBuilder) {
@@ -43,6 +44,8 @@ export class RegistrationComponent {
       console.log(this.registrationForm.value);
       alert('Registration submitted!');
       this.registrationForm.reset();
+    }else{
+      alert("pls fill the details");
     }
   }
 
