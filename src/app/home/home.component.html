@@ -1,37 +1,306 @@
-<section class="carousel-container">
-  <div #carousel class="carousel">
-    <img src="assets/images/one.jpeg" alt="one" />
-    <img src="assets/images/two.jpeg" alt="two" />
-    <img src="assets/images/three.jpeg" alt="three" />
-    <img src="assets/images/one1.jpeg" alt="one1" />
-    <img src="assets/images/two1.jpeg" alt="two1" />
-    <img src="assets/images/three1.jpeg" alt="three1" />
-  </div>
-</section>
-
-
-<section class="news-section">
-    <h2 class="news-heading">News Room</h2>
-    <div class="news-ticker">
-      <div class="news-items" [style.animationDuration]="newsDuration">
-        <div *ngFor="let post of newsPosts" class="news-item">
-          <h4>{{ post.title }}</h4>
-          <p>{{ post.content }}</p>
-          <small>{{ post.date }}</small>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge-top">
+            <span class="badge-text">Established 1998</span>
+            <span class="badge-separator">•</span>
+            <span class="badge-text">25+ Years of Excellence</span>
+          </div>
+          <h1>Welcome to <span class="school-name-highlight">Madhuban Public School</span></h1>
+          <p>Where every child's potential is nurtured with passion, where dreams take flight, and where excellence in education meets the warmth of a caring community in the heart of Kuchpura, Karnal.</p>
+          <div class="hero-buttons">
+            <a routerLink="/admissions" class="btn btn-primary">Apply for Admission</a>
+            <a routerLink="/about" class="btn btn-outline">Discover Our Story</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-carousel">
+            <!-- Loading placeholder -->
+            <div *ngIf="isLoading" class="carousel-loading">
+              <div class="loading-spinner"></div>
+              <p>Loading campus images...</p>
+            </div>
+            
+            <!-- Current image -->
+            <img [src]="getCurrentImageSrc()" 
+                 [alt]="getCurrentImageAlt()" 
+                 class="carousel-image active"
+                 (load)="onImageLoad()"
+                 (error)="onImageError()">
+            
+            <div class="carousel-indicators">
+              <span *ngFor="let image of campusImages; let i = index" 
+                    [class.active]="i === currentImageIndex"
+                    (click)="goToImage(i)"
+                    class="indicator"></span>
+            </div>
+            <div class="carousel-nav">
+              <button (click)="previousImage()" class="nav-btn prev-btn" aria-label="Previous image">‹</button>
+              <button (click)="nextImage()" class="nav-btn next-btn" aria-label="Next image">›</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.890641209314!2d76.7560228!3d29.69395009999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e13fcc91edaa3%3A0xde11d483c1d0e30a!2sG%20N%20A%20Devine%20public%20school!5e0!3m2!1sen!2sin!4v1754066314329!5m2!1sen!2sin"
-      width="100%"
-      height="350"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
   </div>
-  
-  
+</section>
+
+<!-- Quick Stats -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">CBSE</span>
+        <span class="stat-label">Affiliated</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">Co-ed</span>
+        <span class="stat-label">School</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1:15</span>
+        <span class="stat-label">Student:Teacher Ratio</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1998</span>
+        <span class="stat-label">Established</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Snippet -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>About Our School</h2>
+        <p>Madhuban Public School has been a beacon of educational excellence in Kuchpura, Karnal for over 25 years. We are committed to providing a nurturing environment where students can grow academically, socially, and personally.</p>
+        <p>Our comprehensive curriculum, experienced faculty, and modern facilities ensure that every student receives the best possible education to prepare them for the challenges of tomorrow.</p>
+        <a routerLink="/about" class="btn btn-primary">Read More</a>
+      </div>
+      <div class="about-features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Academic Excellence</h3>
+          <p>Comprehensive CBSE curriculum with focus on practical learning</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3>Experienced Faculty</h3>
+          <p>Dedicated teachers with years of experience in education</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Modern Facilities</h3>
+          <p>State-of-the-art infrastructure and learning resources</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Holistic Development</h3>
+          <p>Focus on academic, physical, and emotional growth</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Facilities Section -->
+<section class="facilities">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Facilities</h2>
+      <p>We provide world-class facilities to ensure the best learning experience for our students.</p>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+          </svg>
+        </div>
+        <h3>Science Laboratories</h3>
+        <p>Well-equipped physics, chemistry, and biology labs for hands-on learning and experimentation.</p>
+      </div>
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+          </svg>
+        </div>
+        <h3>Digital Library</h3>
+        <p>Extensive collection of books, e-resources, and digital learning materials for comprehensive research.</p>
+      </div>
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+          </svg>
+        </div>
+        <h3>Computer Lab</h3>
+        <p>Modern computer laboratory with latest technology and software for digital literacy and programming.</p>
+      </div>
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <h3>Sports Complex</h3>
+        <p>Spacious playground and sports facilities for physical education and extracurricular activities.</p>
+      </div>
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <h3>Transport Service</h3>
+        <p>Safe and reliable transportation service covering all major areas of Karnal and surrounding regions.</p>
+      </div>
+      <div class="facility-card">
+        <div class="facility-icon">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        <h3>Cafeteria</h3>
+        <p>Clean and hygienic cafeteria serving nutritious meals and snacks for students and staff.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News & Events -->
+<section class="news">
+  <div class="container">
+    <div class="section-header">
+      <h2>News & Events</h2>
+      <p>Stay updated with the latest happenings and achievements at Madhuban Public School.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <img src="assets/images/2.png" alt="Annual Sports Day" class="news-image">
+        <div class="news-content">
+          <div class="news-date">December 15, 2024</div>
+          <h3>Annual Sports Day Celebration</h3>
+          <p>Join us for our annual sports day featuring exciting competitions and cultural performances. All parents are invited!</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <img src="assets/images/3.png" alt="Science Exhibition" class="news-image">
+        <div class="news-content">
+          <div class="news-date">December 10, 2024</div>
+          <h3>Science Exhibition 2024</h3>
+          <p>Students showcase innovative science projects and experiments in our annual exhibition. Witness the future of innovation!</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card">
+        <img src="assets/images/4.png" alt="Admissions Open" class="news-image">
+        <div class="news-content">
+          <div class="news-date">December 1, 2024</div>
+          <h3>Admissions Open for 2025-26</h3>
+          <p>Enroll your child for the academic year 2025-26. Limited seats available. Apply early to secure a spot!</p>
+          <a href="#" class="news-link">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Parents Say</h2>
+      <p>Hear from our parent community about their experience with Madhuban Public School.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">RS</div>
+          <div class="testimonial-info">
+            <h4>Rajesh Sharma</h4>
+            <p>Parent of Class 10 Student</p>
+          </div>
+        </div>
+        <p class="testimonial-text">"Madhuban Public School has provided excellent education to my daughter. The teachers are dedicated and the facilities are outstanding. Highly recommended!"</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">PK</div>
+          <div class="testimonial-info">
+            <h4>Priya Kumar</h4>
+            <p>Parent of Class 8 Student</p>
+          </div>
+        </div>
+        <p class="testimonial-text">"The school focuses on holistic development. My son has grown not just academically but also in sports and extracurricular activities."</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">AG</div>
+          <div class="testimonial-info">
+            <h4>Amit Gupta</h4>
+            <p>Parent of Class 12 Student</p>
+          </div>
+        </div>
+        <p class="testimonial-text">"The CBSE curriculum and experienced faculty have prepared my daughter well for competitive exams. The school's track record speaks for itself."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Ready to Join Our Family?</h2>
+    <p>Take the first step towards your child's bright future. Contact us today for admissions or any queries.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-accent">Contact Us</a>
+      <a routerLink="/admissions" class="btn btn-secondary" style="color: white; border-color: white;">Apply for Admission</a>
+    </div>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Visit Our Campus</h2>
+      <p>Located in the heart of Kuchpura, Karnal, our campus is easily accessible and provides a peaceful learning environment.</p>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.890641209314!2d76.8053329!3d29.6826112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e13fcc91edaa3%3A0xde11d483c1d0e30a!2sMadhuban%20Public%20School%2C%20Kuchpura%2C%20Karnal!5e0!3m2!1sen!2sin!4v1754066314329!5m2!1sen!2sin"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Madhuban Public School Location">
+      </iframe>
+    </div>
+  </div>
+</section>

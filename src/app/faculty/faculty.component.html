@@ -1,0 +1,211 @@
+<main id="main-content" class="pt-20">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="text-center">
+          <h1>Our Esteemed Faculty</h1>
+          <p>Meet the dedicated educators who inspire and guide our students towards excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Grid -->
+  <section class="facilities">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Team of Educators</h2>
+        <p>Our faculty members are highly qualified, experienced, and passionate about teaching, committed to fostering a dynamic learning environment.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card" *ngFor="let member of faculty">
+          <div class="facility-icon" style="width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 1.5rem; background: var(--primary-color); display: flex; align-items: center; justify-content: center;">
+            <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3 style="text-align: center; margin-bottom: 0.5rem;">{{ member.name }}</h3>
+          <p style="text-align: center; color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">{{ member.role }}</p>
+          <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-bottom: 0.25rem;">{{ member.qualification }}</p>
+          <p style="text-align: center; color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">{{ member.experience }}</p>
+          <p style="text-align: center; font-style: italic; color: var(--text-secondary); font-size: 0.875rem;">{{ member.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Statistics -->
+  <section class="stats">
+    <div class="container">
+      <div class="section-header">
+        <h2>Faculty Excellence</h2>
+        <p>Our commitment to quality education is reflected in our faculty statistics and achievements.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Qualified Teachers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Years Average Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Post Graduate Faculty</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Trained & Certified</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Philosophy -->
+  <section class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Teaching Philosophy</h2>
+        <p>We believe in creating an environment where every student can thrive and reach their full potential.</p>
+      </div>
+      <div class="about-features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Student-Centered Learning</h3>
+          <p>We focus on individual student needs and learning styles to ensure personalized education and growth.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+          <h3>Continuous Professional Development</h3>
+          <p>Our teachers regularly participate in workshops, seminars, and training programs to stay updated with latest teaching methodologies.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Innovative Teaching Methods</h3>
+          <p>We use modern teaching techniques including technology integration, project-based learning, and interactive sessions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Mentorship & Guidance</h3>
+          <p>Teachers act as mentors, providing guidance and support to help students overcome challenges and achieve their goals.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Collaborative Learning</h3>
+          <p>We promote teamwork and collaboration among students through group activities and peer learning opportunities.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Assessment & Feedback</h3>
+          <p>Regular assessment and constructive feedback help students understand their progress and areas for improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Development -->
+  <section class="facilities">
+    <div class="container">
+      <div class="section-header">
+        <h2>Faculty Development Programs</h2>
+        <p>We invest in our teachers' professional growth through various development programs and initiatives.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Regular Training Workshops</h3>
+          <p>Monthly workshops on teaching methodologies, classroom management, and educational technology integration.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Subject-Specific Seminars</h3>
+          <p>Specialized seminars for different subjects to enhance subject knowledge and teaching techniques.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Technology Integration</h3>
+          <p>Training programs on digital tools, online teaching platforms, and educational software applications.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Peer Learning</h3>
+          <p>Collaborative learning sessions where teachers share best practices and learn from each other's experiences.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>External Collaborations</h3>
+          <p>Partnerships with educational institutions and organizations for advanced training and certification programs.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Research & Innovation</h3>
+          <p>Encouraging teachers to engage in educational research and innovative teaching practices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Our Team -->
+  <section class="cta">
+    <div class="container">
+      <div class="text-center">
+        <h2>Join Our Teaching Team</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">Are you passionate about education? Join our team of dedicated educators and make a difference in students' lives.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-accent">View Open Positions</a>
+          <a routerLink="/contact" class="btn btn-secondary" style="color: white; border-color: white;">Contact HR Department</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

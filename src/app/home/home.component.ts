@@ -1,49 +1,127 @@
-import { Component } from '@angular/core';
-import { HeadComponent } from '../head/head.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http'; 
-import { Router } from '@angular/router';
-import { NgFor } from '@angular/common';
-import { FooterComponent } from "../footer/footer.component";
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeadComponent, NgFor, HttpClientModule, FooterComponent], 
+  imports: [RouterLink, CommonModule], 
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  currentImageIndex = 0;
+  carouselInterval: any;
+  isLoading = true;
+  loadedImages = new Set<number>();
 
-  newsPosts: any[] = [];
-  screenWidth: number = 0;
+  campusImages = [
+    { src: 'assets/images/1.png', alt: 'Madhuban Public School Main Building' },
+    { src: 'assets/images/2.png', alt: 'School Playground and Sports Area' },
+    { src: 'assets/images/3.png', alt: 'Modern Classroom with Smart Board' },
+    { src: 'assets/images/4.png', alt: 'Science Laboratory Equipment' },
+    { src: 'assets/images/5.png', alt: 'School Library and Reading Corner' },
+    { src: 'assets/images/6.png', alt: 'Computer Laboratory' },
+    { src: 'assets/images/7.png', alt: 'Students in Classroom Learning' },
+    { src: 'assets/images/8.png', alt: 'School Assembly Hall' },
+    { src: 'assets/images/9.png', alt: 'Art and Craft Room' },
+    { src: 'assets/images/10.png', alt: 'Music and Dance Room' },
+    { src: 'assets/images/11.png', alt: 'School Cafeteria and Dining Area' },
+    { src: 'assets/images/12.png', alt: 'School Garden and Green Area' },
+    { src: 'assets/images/13.png', alt: 'Students Playing Sports' },
+    { src: 'assets/images/14.png', alt: 'Cultural Program Performance' },
+    { src: 'assets/images/15.png', alt: 'Science Exhibition Display' },
+    { src: 'assets/images/16.png', alt: 'School Transport and Parking' },
+    { src: 'assets/images/17.png', alt: 'School Entrance and Reception' },
+    { src: 'assets/images/18.png', alt: 'School Administrative Block' }
+  ];
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
-    const url = 'https://raw.githubusercontent.com/ashu40h/files/main/news1.json';
-    if (typeof window !== 'undefined') {
-      this.screenWidth = window.innerWidth;
+    // Only load images in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      this.loadImage(0);
+    } else {
+      this.isLoading = false;
+    }
+  }
+
+  ngOnDestroy() {
+    this.stopCarousel();
+  }
+
+  getCurrentImageSrc(): string {
+    return this.campusImages[this.currentImageIndex]?.src || '';
+  }
+
+  getCurrentImageAlt(): string {
+    return this.campusImages[this.currentImageIndex]?.alt || '';
+  }
+
+
+  loadImage(index: number) {
+    if (!isPlatformBrowser(this.platformId)) {
+      // Skip image loading on server-side
+      this.isLoading = false;
+      return;
+    }
+
+    // Simple approach - just mark as loaded and start carousel
+    this.loadedImages.add(index);
+    this.isLoading = false;
+    if (index === this.currentImageIndex) {
+      this.startCarousel();
+    }
+  }
+
+  onImageLoad() {
+    this.isLoading = false;
+    this.loadedImages.add(this.currentImageIndex);
+  }
+
+  onImageError() {
+    this.isLoading = false;
+    console.error(`Failed to load current image: ${this.getCurrentImageSrc()}`);
+  }
+
+  startCarousel() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return; // Skip carousel on server-side
     }
     
-    console.log('Screen width:', this.screenWidth);
-
-    console.log('Initial screen width:', this.screenWidth);
-    this.http.get<any[]>(url).subscribe(
-      data => this.newsPosts = data,
-      error => console.error('Error loading posts:', error)
-
-    );
-  }
-  get newsDuration() {
-    return `${this.newsPosts.length * 4}s`;
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
+    this.carouselInterval = setInterval(() => {
+      this.nextImage();
+    }, 4000); // Increased to 4 seconds for better viewing
   }
 
-  isMenuOpen = false;
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  stopCarousel() {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
   }
 
-  closeMenu() {
-    this.isMenuOpen = false;
+  nextImage() {
+    const nextIndex = (this.currentImageIndex + 1) % this.campusImages.length;
+    this.currentImageIndex = nextIndex;
+    this.loadImage(nextIndex);
+  }
+
+  previousImage() {
+    const prevIndex = this.currentImageIndex === 0 
+      ? this.campusImages.length - 1 
+      : this.currentImageIndex - 1;
+    this.currentImageIndex = prevIndex;
+    this.loadImage(prevIndex);
+  }
+
+  goToImage(index: number) {
+    this.currentImageIndex = index;
+    this.loadImage(index);
+    this.stopCarousel();
+    this.startCarousel(); // Restart the auto-rotation
   }
 }

@@ -1,0 +1,206 @@
+<main id="main-content" class="pt-20">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="text-center">
+          <h1>Our School Gallery</h1>
+          <p>A glimpse into the vibrant life, events, and facilities at Madhuban Public School.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Filters -->
+  <section class="about">
+    <div class="container">
+      <div class="text-center mb-6">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
+          <button *ngFor="let category of categories"
+                  (click)="filterImages(category)"
+                  [class]="currentCategory === category ? 'btn btn-primary' : 'btn btn-outline'"
+                  style="border-radius: 2rem; padding: 0.5rem 1.5rem; font-size: 0.875rem;">
+            {{ category }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Image Grid -->
+      <div class="facilities-grid">
+        <div *ngFor="let image of filteredImages; let i = index"
+             class="facility-card"
+             style="cursor: pointer; padding: 0; overflow: hidden;"
+             (click)="openLightbox(image, i)">
+          <div style="position: relative; width: 100%; height: 250px; overflow: hidden;">
+            <img [src]="image.src" [alt]="image.alt"
+                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+                 class="hover-lift">
+            <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;"
+                 class="hover-lift">
+              <span style="color: white; font-weight: 600; text-align: center; padding: 1rem;">{{ image.alt }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Statistics -->
+  <section class="stats">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Campus in Numbers</h2>
+        <p>Explore the scale and beauty of our educational environment.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Classrooms</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Science Labs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Computer Labs</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Library</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Playgrounds</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Green Campus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Campus Highlights -->
+  <section class="facilities">
+    <div class="container">
+      <div class="section-header">
+        <h2>Campus Highlights</h2>
+        <p>Discover the key features and facilities that make our campus special.</p>
+      </div>
+      <div class="facilities-grid">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3>Smart Classrooms</h3>
+          <p>Technology-enabled classrooms with digital boards, projectors, and interactive learning tools for enhanced education.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+            </svg>
+          </div>
+          <h3>Modern Library</h3>
+          <p>Well-stocked library with thousands of books, digital resources, and quiet study areas for students.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+            </svg>
+          </div>
+          <h3>Science Laboratories</h3>
+          <p>Fully equipped physics, chemistry, and biology labs with modern equipment for hands-on learning.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Sports Complex</h3>
+          <p>Spacious playgrounds, basketball court, and sports facilities for physical education and extracurricular activities.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Auditorium</h3>
+          <p>Modern auditorium with seating capacity for 500+ people, perfect for events, assemblies, and performances.</p>
+        </div>
+        <div class="facility-card">
+          <div class="facility-icon">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Cafeteria</h3>
+          <p>Clean and hygienic cafeteria serving nutritious meals and snacks for students and staff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Virtual Tour -->
+  <section class="cta">
+    <div class="container">
+      <div class="text-center">
+        <h2>Take a Virtual Tour</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 2rem;">Experience our campus from the comfort of your home with our interactive virtual tour.</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-accent">Start Virtual Tour</a>
+          <a routerLink="/contact" class="btn btn-secondary" style="color: white; border-color: white;">Schedule Campus Visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div *ngIf="selectedImage" 
+       style="position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 1rem;"
+       (click)="closeLightbox()">
+    <div style="position: relative; max-width: 90vw; max-height: 90vh; background: white; border-radius: 1rem; overflow: hidden;"
+         (click)="$event.stopPropagation()">
+      <!-- Close Button -->
+      <button (click)="closeLightbox()" 
+              style="position: absolute; top: 1rem; right: 1rem; background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 1001;"
+              aria-label="Close image lightbox">
+        &times;
+      </button>
+
+      <!-- Navigation Buttons -->
+      <button *ngIf="selectedIndex > 0" 
+              (click)="prevImage()" 
+              style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1001;"
+              aria-label="Previous image">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+      <button *ngIf="selectedIndex < filteredImages.length - 1" 
+              (click)="nextImage()" 
+              style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1001;"
+              aria-label="Next image">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+        </svg>
+      </button>
+
+      <!-- Image -->
+      <img [src]="selectedImage"
+           [alt]="filteredImages[selectedIndex].alt"
+           style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
+
+      <!-- Image Counter -->
+      <div style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.7); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-size: 0.875rem;">
+        {{ selectedIndex + 1 }} of {{ filteredImages.length }}
+      </div>
+    </div>
+  </div>
+</main>

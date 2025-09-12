@@ -14,5 +14,5 @@ import { FooterComponent } from './footer/footer.component';
   <app-footer></app-footer>`,
 })
 export class AppComponent {
-  title = 'SD360';
+  title = 'Madhuban Public School';
 }

@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Annual Sports Day Celebration",
+    "content": "Join us for our annual sports day featuring exciting competitions, cultural performances, and awards ceremony. All parents and students are invited to participate.",
+    "date": "2024-12-15",
+    "category": "events",
+    "important": true
+  },
+  {
+    "id": 2,
+    "title": "Science Exhibition 2024",
+    "content": "Students showcase innovative science projects and experiments in our annual exhibition. Projects will be judged by external experts and winners will receive certificates.",
+    "date": "2024-12-10",
+    "category": "academics",
+    "important": false
+  },
+  {
+    "id": 3,
+    "title": "Admissions Open for 2025-26",
+    "content": "Enroll your child for the academic year 2025-26. Limited seats available. Early bird discount available for applications submitted before January 31, 2025.",
+    "date": "2024-12-01",
+    "category": "admissions",
+    "important": true
+  },
+  {
+    "id": 4,
+    "title": "Winter Break Schedule",
+    "content": "School will remain closed for winter break from December 25, 2024 to January 5, 2025. Classes will resume on January 6, 2025.",
+    "date": "2024-11-20",
+    "category": "general",
+    "important": false
+  },
+  {
+    "id": 5,
+    "title": "Parent-Teacher Meeting",
+    "content": "Quarterly parent-teacher meeting scheduled for December 20, 2024. Please contact the class teacher to schedule your appointment.",
+    "date": "2024-11-15",
+    "category": "academics",
+    "important": true
+  },
+  {
+    "id": 6,
+    "title": "Library Week Celebration",
+    "content": "Join us for Library Week from December 8-14, 2024. Special activities include book reading sessions, storytelling, and book fair.",
+    "date": "2024-11-10",
+    "category": "events",
+    "important": false
+  },
+  {
+    "id": 7,
+    "title": "Transport Fee Revision",
+    "content": "Transport fees for the academic year 2025-26 have been revised. New fee structure will be effective from April 1, 2025.",
+    "date": "2024-11-05",
+    "category": "general",
+    "important": true
+  },
+  {
+    "id": 8,
+    "title": "Cultural Program - Diwali Celebration",
+    "content": "Students will present cultural programs celebrating Diwali on November 12, 2024. Parents are invited to attend the program.",
+    "date": "2024-10-25",
+    "category": "events",
+    "important": false
+  }
+]

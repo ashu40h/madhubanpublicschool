@@ -20,11 +20,19 @@ export class ContactComponent {
       name: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email: ['', [Validators.required, Validators.email]],
+      subject: [''],
       message: ['', Validators.required]
     });
   }
+  
   onSubmit(): void {
-  console.log('Button clicked!',this.contactForm.value);  // Basic test to check if it's working
-}
+    if (this.contactForm.valid) {
+      console.log('Contact form submitted:', this.contactForm.value);
+      alert('Thank you for your message! We will get back to you shortly.');
+      this.contactForm.reset();
+    } else {
+      alert('Please fill in all required fields correctly.');
+    }
+  }
 
 }
