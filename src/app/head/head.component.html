@@ -77,19 +77,27 @@
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" [class.open]="isMenuOpen">
-      <button class="mobile-close-btn" (click)="closeMenu()" aria-label="Close mobile menu">
-        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      <a routerLink="/" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/')">Home</a>
-      <a routerLink="/about" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/about')">About</a>
-      <a routerLink="/admissions" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/admissions')">Admissions</a>
-      <a routerLink="/academics" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/academics')">Academics</a>
-      <a routerLink="/faculty" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/faculty')">Faculty</a>
-      <a routerLink="/gallery" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/gallery')">Gallery</a>
-      <a routerLink="/contact" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/contact')">Contact</a>
-      <a routerLink="/contact" (click)="closeMenu()" class="btn btn-primary">Apply Now</a>
+      <div class="mobile-nav-overlay" (click)="closeMenu()"></div>
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-header">
+          <h3 class="mobile-nav-title">Menu</h3>
+          <button class="mobile-close-btn" (click)="closeMenu()" aria-label="Close mobile menu">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-nav-links">
+          <a routerLink="/" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/')">Home</a>
+          <a routerLink="/about" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/about')">About</a>
+          <a routerLink="/admissions" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/admissions')">Admissions</a>
+          <a routerLink="/academics" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/academics')">Academics</a>
+          <a routerLink="/faculty" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/faculty')">Faculty</a>
+          <a routerLink="/gallery" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/gallery')">Gallery</a>
+          <a routerLink="/contact" (click)="closeMenu()" class="nav-link" [class.active]="isActiveRoute('/contact')">Contact</a>
+          <a routerLink="/contact" (click)="closeMenu()" class="btn btn-primary">Apply Now</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>

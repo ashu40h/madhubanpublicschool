@@ -11,7 +11,9 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   currentImageIndex = 0;
+  currentSlideIndex = 0;
   carouselInterval: any;
+  slideInterval: any;
   isLoading = true;
   loadedImages = new Set<number>();
 
@@ -42,6 +44,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     // Only load images in browser environment
     if (isPlatformBrowser(this.platformId)) {
       this.loadImage(0);
+      this.startSlideCarousel();
+      console.log('Home component initialized, campus images:', this.campusImages.length);
+      console.log('First image src:', this.campusImages[0].src);
+      console.log('Current slide index:', this.currentSlideIndex);
     } else {
       this.isLoading = false;
     }
@@ -49,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.stopCarousel();
+    this.stopSlideCarousel();
   }
 
   getCurrentImageSrc(): string {
@@ -123,5 +130,60 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.loadImage(index);
     this.stopCarousel();
     this.startCarousel(); // Restart the auto-rotation
+  }
+
+  // Campus Carousel Methods
+  startSlideCarousel() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return; // Skip carousel on server-side
+    }
+
+    console.log('Starting slide carousel with', this.campusImages.length, 'images');
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+    }
+    this.slideInterval = setInterval(() => {
+      this.nextSlide();
+    }, 3000); // 3 seconds per slide
+  }
+
+  stopSlideCarousel() {
+    if (this.slideInterval) {
+      clearInterval(this.slideInterval);
+    }
+  }
+
+  nextSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.campusImages.length;
+    console.log('Next slide, current index:', this.currentSlideIndex, 'Transform:', 'translateX(-' + (this.currentSlideIndex * 100) + '%)');
+  }
+
+  previousSlide() {
+    this.currentSlideIndex = this.currentSlideIndex === 0
+      ? this.campusImages.length - 1
+      : this.currentSlideIndex - 1;
+  }
+
+  goToSlide(index: number) {
+    this.currentSlideIndex = index;
+    this.stopSlideCarousel();
+    this.startSlideCarousel(); // Restart the auto-rotation
+  }
+
+  onCampusImageLoad(index: number) {
+    console.log('Campus image loaded:', index, this.campusImages[index].src);
+  }
+
+  onCampusImageError(index: number) {
+    console.error('Campus image failed to load:', index, this.campusImages[index].src);
+  }
+
+  // Debug method to test carousel
+  testCarousel() {
+    console.log('Testing carousel...');
+    console.log('Current slide index:', this.currentSlideIndex);
+    console.log('Transform value:', 'translateX(-' + (this.currentSlideIndex * 100) + '%)');
+    console.log('Carousel track element:', document.querySelector('.carousel-track'));
+    console.log('Carousel images:', document.querySelectorAll('.carousel-image'));
   }
 }
