@@ -1,0 +1,11 @@
+<div class="contact-container">
+  <h2>Contact</h2>
+  <form [formGroup]="contactForm" class="form-container">
+    <input type="text" placeholder="Your Name" formControlName="name" />
+    <input type="tel" placeholder="Phone Number" formControlName="phone" />
+    <input type="email" placeholder="Your Email" formControlName="email" />
+    <textarea rows="4" placeholder="Your Message" formControlName="message"></textarea>
+
+    <button type="button" (click)="onSubmit()">Send</button>
+  </form>
+</div>
