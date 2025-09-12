@@ -27,10 +27,14 @@ export class HeadComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    console.log('Menu toggled, isMenuOpen:', this.isMenuOpen);
+    console.log('Mobile nav element:', document.querySelector('.mobile-nav'));
+    console.log('Mobile nav classes:', document.querySelector('.mobile-nav')?.className);
   }
 
   closeMenu() {
     this.isMenuOpen = false;
+    console.log('Menu closed, isMenuOpen:', this.isMenuOpen);
   }
 
   isActiveRoute(route: string): boolean {
