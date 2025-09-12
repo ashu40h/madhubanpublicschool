@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SD360": {
+    "madhuban-public-school": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/sd360",
+            "outputPath": "dist/madhuban-public-school",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SD360:build:production"
+              "buildTarget": "madhuban-public-school:build:production"
             },
             "development": {
-              "buildTarget": "SD360:build:development"
+              "buildTarget": "madhuban-public-school:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "SD360:build"
+            "buildTarget": "madhuban-public-school:build"
           }
         },
         "test": {

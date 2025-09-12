@@ -1,68 +1,65 @@
 # Madhuban Public School Website
 
-A modern, responsive website for Madhuban Public School, Kuchpura, Karnal built with Angular 17 and Tailwind CSS.
+A modern, responsive website for Madhuban Public School, Kuchpura, Karnal. Built with Angular and deployed on GitHub Pages.
 
-## 🏫 About
+## 🌟 Features
 
-This website showcases Madhuban Public School's commitment to excellence in education. It features a modern, corporate-quality design with comprehensive information about the school, admissions, academics, faculty, and more.
+- **Responsive Design**: Mobile-first approach with corporate-level styling
+- **Dynamic Image Carousel**: Auto-rotating campus photos
+- **Contact Forms**: Interactive forms with validation
+- **Gallery**: Image gallery with lightbox functionality
+- **News & Events**: Dynamic content management
+- **Faculty Directory**: Staff information with professional layout
+- **SEO Optimized**: Meta tags, structured data, and accessibility features
+- **Fast Loading**: Optimized images and lazy loading
 
-## ✨ Features
+## 🚀 Live Website
 
-- **Modern Design**: Clean, professional layout with blue and white color scheme
-- **Fully Responsive**: Mobile-first design that works on all devices
-- **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
-- **SEO Optimized**: Meta tags, structured data, and semantic HTML
-- **Fast Performance**: Optimized images and efficient code
-- **Interactive Elements**: Contact forms, image gallery with lightbox, and smooth animations
+**Website URL**: [https://YOUR_USERNAME.github.io/YOUR_REPO_NAME](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME)
 
-## 📱 Pages
+## 🛠️ Technologies
 
-- **Home**: Hero section, school stats, facilities, news, and testimonials
-- **About**: Mission, vision, values, school history, and principal's message
-- **Admissions**: Admission process, age criteria, documents, fee structure, and forms
-- **Academics**: Curriculum overview, subjects, teaching methodology, and co-curricular activities
-- **Faculty**: Teaching staff profiles and school statistics
-- **Gallery**: Photo gallery with filtering and lightbox functionality
-- **Contact**: Contact information, form, and embedded Google Maps
+- **Angular 17** - Modern web framework
+- **TypeScript** - Type-safe JavaScript
+- **Custom CSS** - Corporate-level styling
+- **HTML5** - Semantic markup
+- **GitHub Pages** - Free hosting
+- **GitHub Actions** - Automated deployment
 
-## 🛠️ Technology Stack
-
-- **Frontend**: Angular 17 (Standalone Components)
-- **Styling**: Tailwind CSS 3.3+
-- **Icons**: Heroicons (SVG)
-- **Maps**: Google Maps Embed API
-- **Forms**: Angular Reactive Forms
-- **Routing**: Angular Router
-
-## 🚀 Getting Started
+## 📦 Setup & Development
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js 18+
 - npm or yarn
+- Git
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
 
 ```bash
-git clone <repository-url>
-cd madhubanpublicschool
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+cd YOUR_REPO_NAME
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. **Start development server:**
 
 ```bash
 npm start
 ```
 
-4. Open your browser and navigate to `http://localhost:4200`
+4. **Open in browser:**
+
+```
+http://localhost:4200
+```
 
 ### Build for Production
 
@@ -70,70 +67,155 @@ npm start
 npm run build
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+## 🌐 Deployment to GitHub Pages
+
+### Method 1: Automatic Deployment (Recommended)
+
+1. **Enable GitHub Pages:**
+
+   - Go to your repository settings
+   - Navigate to "Pages" section
+   - Select "GitHub Actions" as source
+
+2. **Push to main branch:**
+
+   ```bash
+   git add .
+   git commit -m "Deploy website"
+   git push origin main
+   ```
+
+3. **GitHub Actions will automatically:**
+   - Build the Angular app
+   - Deploy to GitHub Pages
+   - Update your live website
+
+### Method 2: Manual Deployment
+
+1. **Build the project:**
+
+   ```bash
+   npm run build
+   ```
+
+2. **Run deployment script:**
+
+   ```bash
+   ./deploy.sh
+   ```
+
+3. **Or manually deploy:**
+   ```bash
+   cd dist/madhuban-public-school/browser
+   git init
+   git add .
+   git commit -m "Deploy website"
+   git push origin HEAD:gh-pages --force
+   ```
 
 ## 📁 Project Structure
 
 ```
-src/
-├── app/
-│   ├── about/           # About page component
-│   ├── admissions/      # Admissions page component
-│   ├── academics/       # Academics page component
-│   ├── contact/         # Contact page component
-│   ├── faculty/         # Faculty page component
-│   ├── footer/          # Footer component
-│   ├── gallery/         # Gallery page component
-│   ├── head/            # Header component
-│   ├── home/            # Home page component
-│   └── registration/    # Registration component
-├── assets/
-│   ├── images/          # School photos
-│   └── logo/            # School logo
-└── styles.css           # Global styles with Tailwind CSS
+madhuban-public-school/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions deployment
+├── src/
+│   ├── app/
+│   │   ├── home/               # Homepage component
+│   │   ├── about/              # About page
+│   │   ├── admissions/         # Admissions page
+│   │   ├── academics/          # Academics page
+│   │   ├── faculty/            # Faculty page
+│   │   ├── gallery/            # Gallery page
+│   │   ├── contact/            # Contact page
+│   │   ├── head/               # Header component
+│   │   └── footer/             # Footer component
+│   ├── assets/
+│   │   ├── images/             # Campus photos (1.png - 18.png)
+│   │   └── logo/               # School logo
+│   ├── styles.css              # Global styles
+│   └── index.html              # Main HTML file
+├── deploy.sh                   # Manual deployment script
+├── angular.json                # Angular configuration
+└── README.md                   # This file
 ```
 
 ## 🎨 Customization
 
-### Colors
+### Update School Information
 
-The website uses a custom color palette defined in `tailwind.config.js`:
+1. **Contact Details:**
 
-- Primary: Blue shades (#2563eb)
-- Secondary: Gray shades (#64748b)
-- Accent: Yellow (#f59e0b)
+   - Phone: Update in `src/app/head/head.component.html`
+   - Email: Update in `src/app/head/head.component.html`
+   - Address: Update in `src/app/footer/footer.component.html`
 
-### Content Updates
+2. **School Name:**
 
-To update school information:
+   - Update in `src/app/head/head.component.html`
+   - Update in `src/index.html` title and meta tags
 
-1. **Contact Details**: Update in header and footer components
-2. **School Information**: Modify content in respective page components
-3. **Images**: Replace images in `src/assets/images/` directory
-4. **Faculty**: Update faculty information in `faculty.component.html`
+3. **Images:**
+   - Replace campus photos in `src/assets/images/`
+   - Update school logo in `src/assets/logo/`
+   - Ensure images are optimized for web
 
-### Adding New Pages
+### Styling
 
-1. Create a new component: `ng generate component pages/new-page`
-2. Add route in `app.routes.ts`
-3. Update navigation in header and footer components
+- **Colors:** Modify CSS variables in `src/styles.css`
+- **Fonts:** Update Google Fonts import in `src/styles.css`
+- **Layout:** Adjust grid and flexbox properties
 
-## 📧 Contact Information
+### Content
 
-**Madhuban Public School**
+- **About Page:** Update school description and principal message
+- **Faculty:** Add/remove staff members in `src/app/faculty/faculty.component.ts`
+- **News & Events:** Update content in `src/data/notices.json`
 
-- Address: Kuchpura, Karnal, Haryana 132001
-- Phone: +91-9896729375
-- Email: info@madhubanpublicschool.edu.in
+## 🔧 Configuration
+
+### GitHub Pages Setup
+
+1. **Repository Settings:**
+
+   - Go to Settings → Pages
+   - Source: GitHub Actions
+   - Custom domain (optional)
+
+2. **Environment Variables:**
+   - No additional setup required
+   - Uses default `GITHUB_TOKEN`
+
+### SEO Configuration
+
+- **Meta Tags:** Configured in `src/index.html`
+- **Structured Data:** JSON-LD in `src/index.html`
+- **Sitemap:** `sitemap.xml` in root directory
+- **Robots:** `robots.txt` in root directory
+
+## 📱 Mobile Optimization
+
+- **Responsive Design:** Mobile-first CSS approach
+- **Touch-Friendly:** Large touch targets for mobile
+- **Fast Loading:** Optimized images and lazy loading
+- **Progressive Web App:** Ready for PWA features
+
+## 🚀 Performance
+
+- **Lazy Loading:** Images load as needed
+- **Optimized Build:** Production build with minification
+- **CDN Ready:** Static assets optimized for CDN
+- **Caching:** Proper cache headers for static assets
+
+## 📞 Support
+
+For technical support or customization requests, please contact the development team.
 
 ## 📄 License
 
-This project is proprietary to Madhuban Public School. All rights reserved.
-
-## 🤝 Contributing
-
-For updates or improvements, please contact the school administration.
+This project is proprietary to Madhuban Public School, Kuchpura, Karnal.
 
 ---
 
-**Built with ❤️ for quality education**
+**Built with ❤️ for Madhuban Public School**
