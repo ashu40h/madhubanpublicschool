@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   slideInterval: any;
   isLoading = true;
   loadedImages = new Set<number>();
+  notices: any[] = [];
+  animationDuration: string = '40s';
+
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   campusImages = [
     { src: 'assets/images/1.png', alt: 'Madhuban Public School Main Building' },
@@ -38,9 +46,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     { src: 'assets/images/18.png', alt: 'School Administrative Block' }
   ];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
   ngOnInit() {
+    // Load news data
+    this.loadNewsData();
+    
     // Only load images in browser environment
     if (isPlatformBrowser(this.platformId)) {
       this.loadImage(0);
@@ -185,5 +194,70 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log('Transform value:', 'translateX(-' + (this.currentSlideIndex * 100) + '%)');
     console.log('Carousel track element:', document.querySelector('.carousel-track'));
     console.log('Carousel images:', document.querySelectorAll('.carousel-image'));
+  }
+
+  loadNewsData() {
+    this.http.get<any[]>('https://raw.githubusercontent.com/ashu40h/files/main/news1.json').subscribe({
+      next: (data) => {
+        this.notices = data.slice(0, 100); // Show only latest 6 news items
+        this.calculateAnimationDuration();
+        console.log('News data loaded from GitHub:', this.notices.length);
+      },
+      error: (error) => {
+        console.error('Error loading news data from GitHub:', error);
+        // Fallback data if GitHub JSON fails to load
+        this.notices = [
+          {
+            id: 1,
+            title: "Annual Sports Day Celebration",
+            date: "2024-12-15",
+            category: "events",
+            important: true
+          },
+          {
+            id: 2,
+            title: "Science Exhibition 2024",
+            date: "2024-12-10",
+            category: "academics",
+            important: false
+          },
+          {
+            id: 3,
+            title: "Admissions Open for 2025-26",
+            date: "2024-12-01",
+            category: "admissions",
+            important: true
+          }
+        ];
+        this.calculateAnimationDuration();
+      }
+    });
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-IN', { 
+      day: 'numeric', 
+      month: 'short', 
+      year: 'numeric' 
+    });
+  }
+
+  calculateAnimationDuration() {
+    // Base time per item: 8 seconds (adjustable)
+    const baseTimePerItem = 8;
+    // Minimum duration: 20 seconds
+    const minDuration = 20;
+    // Maximum duration: 80 seconds
+    const maxDuration = 80;
+    
+    // Calculate duration based on number of items
+    const calculatedDuration = this.notices.length * baseTimePerItem;
+    
+    // Clamp between min and max duration
+    const finalDuration = Math.max(minDuration, Math.min(maxDuration, calculatedDuration));
+    
+    this.animationDuration = `${finalDuration}s`;
+    console.log(`Animation duration set to: ${this.animationDuration} for ${this.notices.length} items`);
   }
 }

@@ -22,14 +22,19 @@ export class HeadComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event) => {
         this.currentRoute = (event as NavigationEnd).url;
+        if (typeof window !== 'undefined') {
+          window.scrollTo(0, 0);
+        }
       });
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-    console.log('Menu toggled, isMenuOpen:', this.isMenuOpen);
-    console.log('Mobile nav element:', document.querySelector('.mobile-nav'));
-    console.log('Mobile nav classes:', document.querySelector('.mobile-nav')?.className);
+    if (typeof document !== 'undefined') {
+      console.log('Menu toggled, isMenuOpen:', this.isMenuOpen);
+      console.log('Mobile nav element:', document.querySelector('.mobile-nav'));
+      console.log('Mobile nav classes:', document.querySelector('.mobile-nav')?.className);
+    }
   }
 
   closeMenu() {
@@ -46,6 +51,8 @@ export class HeadComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event) {
+    if (typeof document === 'undefined') return;
+    
     const target = event.target as HTMLElement;
     const mobileNav = document.querySelector('.mobile-nav');
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -60,8 +67,12 @@ export class HeadComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: Event) {
     // Close mobile menu on window resize to desktop size
-    if (window.innerWidth > 768 && this.isMenuOpen) {
+    if (typeof window !== 'undefined' && window.innerWidth > 768 && this.isMenuOpen) {
       this.closeMenu();
     }
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
   }
 }

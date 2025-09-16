@@ -1,17 +1,18 @@
 .contact-container {
   max-width: 500px;
   margin: 40px auto;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   padding: 30px 25px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #e2e8f0;
 }
 
 .contact-container h2 {
   text-align: center;
   margin-bottom: 25px;
-  color: #333;
+  color: #0f172a;
 }
 
 form {
@@ -22,16 +23,18 @@ form {
 input, textarea {
   padding: 12px 15px;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background-color: #ffffff;
+  color: #0f172a;
 }
 
 input:focus, textarea:focus {
-  border-color: #3498db;
+  border-color: #1e40af;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
 }
 
 textarea {
@@ -40,8 +43,8 @@ textarea {
 
 button {
   padding: 12px;
-  background-color: #ffb400;
-  color: #fff;
+  background-color: #1e40af;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
@@ -51,11 +54,11 @@ button {
 }
 
 button:hover:enabled {
-  background-color: #e09e00;
+  background-color: #1e3a8a;
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: #9ca3af;
   cursor: not-allowed;
 }
 
@@ -69,12 +72,4 @@ button:disabled {
   input, textarea, button {
     font-size: 0.95rem;
   }
-}
-.contact-container {
-  background-color: #f0f0f5; /* Change to your desired color */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: auto;
 }

@@ -5,9 +5,9 @@
       <div class="hero-grid">
         <div class="hero-text">
           <div class="hero-badge-top">
-            <span class="badge-text">Established 1998</span>
+            <span class="badge-text">Established 2004</span>
             <span class="badge-separator">•</span>
-            <span class="badge-text">25+ Years of Excellence</span>
+            <span class="badge-text">21+ Years of Excellence</span>
           </div>
           <h1>Welcome to <span class="school-name-highlight">Madhuban Public School</span></h1>
           <p>Where every child's potential is nurtured with passion, where dreams take flight, and where excellence in education meets the warmth of a caring community in the heart of Kuchpura, Karnal.</p>
@@ -16,33 +16,23 @@
             <a routerLink="/about" class="btn btn-outline">Discover Our Story</a>
           </div>
         </div>
-        <div class="hero-image">
-          <div class="image-carousel">
-            <!-- Loading placeholder -->
-            <div *ngIf="isLoading" class="carousel-loading">
-              <div class="loading-spinner"></div>
-              <p>Loading campus images...</p>
-            </div>
-            
-            <!-- Current image -->
-            <img [src]="getCurrentImageSrc()" 
-                 [alt]="getCurrentImageAlt()" 
-                 class="carousel-image active"
-                 (load)="onImageLoad()"
-                 (error)="onImageError()">
-            
-            <div class="carousel-indicators">
-              <span *ngFor="let image of campusImages; let i = index" 
-                    [class.active]="i === currentImageIndex"
-                    (click)="goToImage(i)"
-                    class="indicator"></span>
-            </div>
-            <div class="carousel-nav">
-              <button (click)="previousImage()" class="nav-btn prev-btn" aria-label="Previous image">‹</button>
-              <button (click)="nextImage()" class="nav-btn next-btn" aria-label="Next image">›</button>
+
+        <!-- News Room Section -->
+        <div class="news-room">
+          <div class="news-room-header">
+            <h3>📢 News Room</h3>
+          </div>
+          <div class="news-scroll-container">
+            <div class="news-scroll-content" [style.animation-duration]="animationDuration">
+              <div *ngFor="let notice of notices" class="news-item" [class.important]="notice.important">
+                <div class="news-date">{{ formatDate(notice.date) }}</div>
+                <div class="news-title">{{ notice.title }}</div>
+                <div class="news-category">{{ notice.category | titlecase }}</div>
+              </div>
             </div>
           </div>
         </div>
+       
       </div>
     </div>
   </div>
@@ -64,7 +54,7 @@
           <span class="stat-label">Facilities</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">25+</span>
+          <span class="stat-number">21+</span>
           <span class="stat-label">Years</span>
         </div>
         <div class="stat-item">
@@ -110,7 +100,7 @@
         <span class="stat-label">Student:Teacher Ratio</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">1998</span>
+        <span class="stat-number">2004</span>
         <span class="stat-label">Established</span>
       </div>
     </div>
@@ -123,7 +113,7 @@
     <div class="about-grid">
       <div class="about-text">
         <h2>About Our School</h2>
-        <p>Madhuban Public School has been a beacon of educational excellence in Kuchpura, Karnal for over 25 years. We are committed to providing a nurturing environment where students can grow academically, socially, and personally.</p>
+        <p>Madhuban Public School has been a beacon of educational excellence in Kuchpura, Karnal for over 21 years. We are committed to providing a nurturing environment where students can grow academically, socially, and personally.</p>
         <p>Our comprehensive curriculum, experienced faculty, and modern facilities ensure that every student receives the best possible education to prepare them for the challenges of tomorrow.</p>
         <a routerLink="/about" class="btn btn-primary">Read More</a>
       </div>
@@ -262,7 +252,7 @@
         </div>
       </div>
       <div class="news-card">
-        <img src="assets/images/4.png" alt="Admissions Open" class="news-image">
+        <img src="assets/images/8.png" alt="Admissions Open" class="news-image">
         <div class="news-content">
           <div class="news-date">December 1, 2024</div>
           <h3>Admissions Open for 2025-26</h3>
@@ -323,7 +313,7 @@
     <p>Take the first step towards your child's bright future. Contact us today for admissions or any queries.</p>
     <div class="cta-buttons">
       <a routerLink="/contact" class="btn btn-accent">Contact Us</a>
-      <a routerLink="/admissions" class="btn btn-secondary" style="color: white; border-color: white;">Apply for Admission</a>
+      <a routerLink="/admissions" class="btn btn-secondary" style="color: rgb(15, 47, 150); border-color: white;">Apply for Admission</a>
     </div>
   </div>
 </section>
@@ -338,7 +328,7 @@
     </div>
   <div class="map-container">
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.890641209314!2d76.8053329!3d29.6826112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e13fcc91edaa3%3A0xde11d483c1d0e30a!2sMadhuban%20Public%20School%2C%20Kuchpura%2C%20Karnal!5e0!3m2!1sen!2sin!4v1754066314329!5m2!1sen!2sin"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13865.150606513458!2d76.80567529572241!3d29.68243889187082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e13b8bbf26cfd%3A0xee957d29d8882cc1!2sMadhuban%20Public%20School%20%2C%20Kuchpura%2C%20Karnal!5e0!3m2!1sen!2sin!4v1757907086960!5m2!1sen!2sin"
       width="100%"
         height="450"
       style="border:0;"
